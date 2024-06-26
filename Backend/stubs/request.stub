@@ -25,4 +25,18 @@ class {{ class }} extends FormRequest
             //
         ];
     }
+
+    /**
+     * Get the error messagges if validation fails
+     *
+     * @return \Response
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(
+            response()->json([
+                'messages' => $validator->errors()->all()
+            ], 400)
+        );
+    }
 }
