@@ -10,6 +10,7 @@ use App\Http\Requests\{
 use Exception;
 use App\Interfaces\ICRUD;
 use App\Controllers\BaseController;
+use App\Http\Requests\ArticlesRequests\FilterArticlesRequest;
 
 class ArticlesController extends BaseController
 {
@@ -42,10 +43,10 @@ class ArticlesController extends BaseController
         }
     }
 
-    public function index()
+    public function index(FilterArticlesRequest $filterArticlesRequest)
     {
         try {
-            $articles = $this->articlesService->index();
+            $articles = $this->articlesService->index($filterArticlesRequest->validated());
 
             return $this->SuccessResponse($articles, 200);
         } catch (Exception $exception) {
