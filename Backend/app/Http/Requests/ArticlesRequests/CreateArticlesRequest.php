@@ -13,7 +13,7 @@ class CreateArticlesRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,37 @@ class CreateArticlesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "title" => [
+                "required",
+                "string"
+            ],
+            "content" => [
+                "required",
+                "string"
+            ],
+            "author_id" => [
+                "required",
+                "integer"
+            ],
+            "category_id" => [
+                "required",
+                "integer"
+            ],
+            "publish_date" => [
+                "required",
+                "date"
+            ],
+            "image" => [
+                "array"
+            ],
+            "image.data" => [
+                "file",
+                "required"
+            ],
+            "image.description" => [
+                "string",
+                "sometimes"
+            ]
         ];
     }
 

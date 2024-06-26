@@ -13,7 +13,7 @@ class UpdateArticlesRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,26 @@ class UpdateArticlesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "title" => [
+                "sometimes",
+                "string"
+            ],
+            "content" => [
+                "sometimes",
+                "string"
+            ],
+            "author_id" => [
+                "sometimes",
+                "integer"
+            ],
+            "category_id" => [
+                "sometimes",
+                "integer"
+            ],
+            "publish_date" => [
+                "sometimes",
+                "date"
+            ]
         ];
     }
 
