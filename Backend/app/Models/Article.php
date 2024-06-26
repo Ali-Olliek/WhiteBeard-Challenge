@@ -22,9 +22,9 @@ class Article extends Model
     #endregion
 
     #region Eloquent Relations
-    public function images()
+    public function image()
     {
-        return $this->hasMany(ArticleImage::class);
+        return $this->hasOne(ArticleImage::class);
     }
 
     public function metrics()
