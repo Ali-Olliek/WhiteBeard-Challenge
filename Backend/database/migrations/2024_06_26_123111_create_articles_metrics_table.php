@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles_metrics', function (Blueprint $table) {
+        Schema::create('article_metrics', function (Blueprint $table) {
             $table->id();
             $table->foreignId("article_id");
-            $table->boolean("is_viewed")->nullable();
-            $table->boolean("is_liked")->nullable();
+            $table->enum("type", ["like", "view"]);
             $table->timestamps();
         });
     }
