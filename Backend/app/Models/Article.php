@@ -18,7 +18,7 @@ class Article extends Model
         "publish_date"
     ];
 
-    public $with = ["images", "metrics", "author"];
+    public $with = ["image", "metrics", "author"];
     #endregion
 
     #region Eloquent Relations
