@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     use HasFactory;
+
+    #region Config
+    protected $fillable = ["name"];
+
+    #endregion
+
+    #region Relations
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+    #endregion
 }
