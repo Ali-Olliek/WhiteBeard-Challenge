@@ -9,11 +9,13 @@ class ArticleMetric extends Model
 {
     use HasFactory;
 
+    public $like = "like";
+    public $view = "view";
+
     #region Config
     protected $fillable = [
         "article_id",
-        "is_viewed",
-        "is_liked"
+        "type"
     ];
     #endregion
 
