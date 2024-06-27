@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\ArticleCategory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Enums\ArticleCategories;
 
 class ArticleCategorySeeder extends Seeder
 {
@@ -13,6 +13,15 @@ class ArticleCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        ArticleCategory::factory()->count(5)->create();
+        $categories = ArticleCategories::values();
+
+        foreach ($categories as $category) {
+            ArticleCategory::create(
+                [
+                    "name" => $category,
+                    "icon" => "https://picsum.photos/100"
+                ]
+            );
+        }
     }
 }
