@@ -4,10 +4,12 @@ import Header from './Header';
 
 function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <Header />
-      {children}
-    </>
+    <div>
+      <div style={{ height: '5%', backgroundColor: 'black' }}>
+        <Header />
+      </div>
+      <div style={{ padding: '5%' }}>{children}</div>
+    </div>
   );
 }
 

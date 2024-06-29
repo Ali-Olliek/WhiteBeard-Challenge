@@ -29,7 +29,7 @@ const index = async (params?: IArticleFilter) => {
   }
 };
 
-const show = async (id: number) => {
+const show = async (id: string) => {
   try {
     const api = unAuthenticatedApi;
 

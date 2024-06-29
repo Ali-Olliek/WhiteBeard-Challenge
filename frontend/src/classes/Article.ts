@@ -12,16 +12,20 @@ export class Article extends Base {
   public publishDate: Date;
   public image: ArticleImage;
   public metrics: ArticleMetric[];
+  public likesCount: number;
+  public viewsCount: number;
   constructor(article: any) {
     super(article);
-    this.image = article.image;
+    this.image = new ArticleImage(article.image);
     this.title = article.title;
-    this.author = article.author;
+    this.author = new Author(article.author);
     this.metrics = article.metrics;
     this.content = article.content;
     this.authorId = article.author_id;
+    this.likesCount = article.likes_count;
+    this.viewsCount = article.views_count;
     this.categoryId = article.category_id;
-    this.publishDate = article.publish_date;
+    this.publishDate = new Date(article.publish_date);
   }
 
   public static URI: string = 'articles';

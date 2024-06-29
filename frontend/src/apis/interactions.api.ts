@@ -17,7 +17,7 @@ const view = async (articleId: number) => {
 
     const result = await api.post(`articles/${articleId}/view`);
 
-    return result.data.data;
+    return result.data;
   } catch (error) {
     throw error;
   }

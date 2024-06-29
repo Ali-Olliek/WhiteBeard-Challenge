@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route element={<BaseRoute isProtected={false} />}>
           <Route path='/' element={<HomeScreen />} />
-          <Route path='/article:articleId' element={<ArticleScreen />} />
+          <Route path='/article' element={<ArticleScreen />} />
         </Route>
         <Route path='*' element={<>404</>} />
       </Routes>
