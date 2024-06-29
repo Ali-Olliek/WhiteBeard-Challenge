@@ -25,7 +25,7 @@ class ArticleFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'content' => $this->faker->paragraphs(3, true),
+            'content' => $this->faker->paragraphs(10, true),
             'author_id' => Author::all()->random()->id,
             'publish_date' => $this->faker->dateTime(),
             'category_id' => ArticleCategory::all()->random()->id,

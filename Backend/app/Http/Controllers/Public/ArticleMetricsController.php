@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Public;
 
 use Exception;
 use App\Services\MetricsService;
-use App\Controllers\BaseController;
+use App\Http\Controllers\BaseController;
 
 class ArticleMetricsController extends BaseController
 {

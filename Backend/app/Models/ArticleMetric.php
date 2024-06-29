@@ -9,8 +9,8 @@ class ArticleMetric extends Model
 {
     use HasFactory;
 
-    public $like = "like";
-    public $view = "view";
+    public static $like = "like";
+    public static $view = "view";
 
     #region Config
     protected $fillable = [

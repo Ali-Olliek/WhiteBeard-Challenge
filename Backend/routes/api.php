@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Public\ArticleMetricsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Public\ArticlesController;
+use App\Models\ArticleMetric;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,6 @@ Route::delete("articles/{articleId}", [ArticlesController::class, "delete"]);
 #endregion
 
 #region Article Metrics
-Route::post("articles/{articleId}/like");
-Route::post("articles/{articleId}/view");
+Route::post("articles/{articleId}/like", [ArticleMetricsController::class, "like"]);
+Route::post("articles/{articleId}/view", [ArticleMetricsController::class, "view"]);
 #endregion

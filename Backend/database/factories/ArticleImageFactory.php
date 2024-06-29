@@ -19,7 +19,7 @@ class ArticleImageFactory extends Factory
     {
         return [
             "image_description" => $this->faker->text(100),
-            "image_url" => "https://picsum.photos/500/300",
+            "image_url" => "https://picsum.photos/500/300?random=" . $this->faker->numberBetween(1, 100),
             "article_id" => $this->faker->numberBetween(1, 50)
         ];
     }

@@ -24,8 +24,19 @@ class Article extends Model
     ];
 
     public $with = ["image", "metrics", "author"];
+
+    protected $appends = ["likes_count", "views_count"];
     #endregion
 
+    public function getLikesCountAttribute()
+    {
+        return $this->metrics()->where("type", "like")->count();
+    }
+
+    public function getViewsCountAttribute()
+    {
+        return $this->metrics()->where("type", "view")->count();
+    }
     #region Eloquent Relations
     public function image()
     {
