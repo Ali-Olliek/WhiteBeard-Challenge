@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Utils\Paginate;
 use Exception;
 use App\Models\Article;
 use App\Interfaces\ICRUD;
@@ -39,6 +40,10 @@ class ArticlesService implements ICRUD
 
         if (isset($validatedData["to"])) {
             $articlesQuery->where("to", ">", $validatedData["to"]);
+        }
+
+        if (isset($validatedData["paginate"]) && $validatedData["paginate"] == "true") {
+            Paginate::apply($articlesQuery, $validatedData);
         }
 
         return $articlesQuery->get();

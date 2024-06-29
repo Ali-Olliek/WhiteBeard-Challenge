@@ -52,6 +52,16 @@ class FilterArticlesRequest extends FormRequest
             ],
             "sort.direction" => [
                 Rule::in(["desc", "asc"])
+            ],
+            "paginate" => [
+                Rule::in(["true", "false"])
+            ],
+            "page" => [
+                "required_if:paginate, true",
+                "integer"
+            ],
+            "per_page" => [
+                "integer"
             ]
         ];
     }
