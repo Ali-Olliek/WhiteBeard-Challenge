@@ -14,8 +14,13 @@ class Article extends Model
         "title",
         "content",
         "author_id",
+        "is_featured",
         "category_id",
-        "publish_date"
+        "publish_date",
+    ];
+
+    protected $casts = [
+        "is_featured" => "boolean"
     ];
 
     public $with = ["image", "metrics", "author"];
