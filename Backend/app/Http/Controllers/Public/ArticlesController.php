@@ -9,7 +9,7 @@ use App\Http\Requests\{
 
 use Exception;
 use App\Interfaces\ICRUD;
-use App\Controllers\BaseController;
+use App\Http\Controllers\BaseController;
 use App\Http\Requests\ArticlesRequests\FilterArticlesRequest;
 
 class ArticlesController extends BaseController
