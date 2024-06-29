@@ -3,17 +3,23 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { Article as ArticleClass } from '../classes/Article';
 import { getArticle } from '../apis/articles.api';
-import { EyeOutlined, HeartOutlined } from '@ant-design/icons';
+import { EyeOutlined, HeartFilled, HeartOutlined } from '@ant-design/icons';
 import { like, view } from '../apis/interactions.api';
 import { Tooltip } from 'antd';
+import FloatButtonMenu from '../components/common/FloatButtonMenu';
+import LocalStorageService from '../services/LocalStorageService';
 
 function Article() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const articleId = queryParams.get('articleId');
+  const localStorageService = new LocalStorageService();
+  const [isLiked, setIsLiked] = useState<boolean>(
+    localStorageService.isLiked(parseInt(articleId ? articleId : '0'))
+  );
 
   const [article, setArticle] = useState<ArticleClass>();
-  const [liked, setLiked] = useState<boolean>(false);
+  const pageURL = window.location.href;
 
   useEffect(() => {
     const registerView = async () => {
@@ -37,6 +43,8 @@ function Article() {
   const handleLike = async () => {
     if (!articleId) return;
 
+    localStorageService.save(parseInt(articleId));
+    setIsLiked(true);
     await like(parseInt(articleId));
 
     fetchArticle();
@@ -46,6 +54,10 @@ function Article() {
 
   return (
     <Container.Main>
+      <FloatButtonMenu
+        twitter={{ url: pageURL, text: article.title }}
+        facebook={{ url: pageURL, quote: article.title }}
+      />
       <div
         style={{
           display: 'flex',
@@ -56,10 +68,17 @@ function Article() {
       >
         <div style={{ marginInline: 10 }}>
           <Tooltip title={article.likesCount}>
-            <HeartOutlined
-              onClick={handleLike}
-              style={{ fontSize: '36px', color: 'red', cursor: 'pointer' }}
-            />
+            {isLiked ? (
+              <HeartFilled
+                disabled
+                style={{ fontSize: '36px', color: 'red', cursor: 'pointer' }}
+              />
+            ) : (
+              <HeartOutlined
+                onClick={handleLike}
+                style={{ fontSize: '36px', color: 'red', cursor: 'pointer' }}
+              />
+            )}
           </Tooltip>
         </div>
         <div>
