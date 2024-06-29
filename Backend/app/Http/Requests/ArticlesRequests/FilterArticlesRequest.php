@@ -43,14 +43,10 @@ class FilterArticlesRequest extends FormRequest
                 "gt:from",
                 "date"
             ],
-            "sort" => [
-                "array",
-                "sometimes"
-            ],
-            "sort.by" => [
+            "sort_by" => [
                 "string",
             ],
-            "sort.direction" => [
+            "sort_direction" => [
                 Rule::in(["desc", "asc"])
             ],
             "paginate" => [
