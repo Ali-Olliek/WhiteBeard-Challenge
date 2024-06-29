@@ -15,15 +15,10 @@ class ArticlesService implements ICRUD
 
     public function index(?array $validatedData = null, $params = null)
     {
-        $articlesQuery = Article::query();
+        $articlesQuery = Article::query()->orderBy("is_featured", "desc")->orderBy("publish_date", "desc");
 
         // return without filtering
         if (!$validatedData) return $articlesQuery->get();
-
-        // Apply Sort
-        if (isset($validatedData["sort"])) {
-            $articlesQuery->orderBy($validatedData["sort"]["by"] ?? "publish_date", $validatedData["sort"]["direction"] ?? "desc");
-        }
 
         // Apply Filters
         if (isset($validatedData["category_id"])) {

@@ -28,7 +28,8 @@ class ArticleFactory extends Factory
             'content' => $this->faker->paragraphs(3, true),
             'author_id' => Author::all()->random()->id,
             'publish_date' => $this->faker->dateTime(),
-            'category_id' => ArticleCategory::all()->random()->id
+            'category_id' => ArticleCategory::all()->random()->id,
+            'is_featured' => $this->faker->randomElement([1, 0])
         ];
     }
 
