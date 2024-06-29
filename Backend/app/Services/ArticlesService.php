@@ -19,6 +19,11 @@ class ArticlesService implements ICRUD
         // return without filtering
         if (!$validatedData) return $articlesQuery->get();
 
+        // Apply Sort
+        if (isset($validatedData["sort"])) {
+            $articlesQuery->orderBy($validatedData["sort"]["by"] ?? "publish_date", $validatedData["sort"]["direction"] ?? "desc");
+        }
+
         // Apply Filters
         if (isset($validatedData["category_id"])) {
             $articlesQuery->where("category_id", $validatedData["category_id"]);

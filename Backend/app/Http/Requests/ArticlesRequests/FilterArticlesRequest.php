@@ -5,7 +5,7 @@ namespace App\Http\Requests\ArticlesRequests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-
+use Illuminate\Validation\Rule;
 
 class FilterArticlesRequest extends FormRequest
 {
@@ -42,6 +42,16 @@ class FilterArticlesRequest extends FormRequest
                 "sometimes",
                 "gt:from",
                 "date"
+            ],
+            "sort" => [
+                "array",
+                "sometimes"
+            ],
+            "sort.by" => [
+                "string",
+            ],
+            "sort.direction" => [
+                Rule::in(["desc", "asc"])
             ]
         ];
     }
