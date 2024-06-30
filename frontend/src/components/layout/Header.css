@@ -1,0 +1,36 @@
+.header-main {
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)) ;
+    display: flex;
+    justify-content: start;
+    padding-inline: 50px;
+    padding-block: 10px;
+    position: fixed;
+    z-index: 1;
+    transition: height 0.3s, opacity 0.3s;
+}
+
+.header-logo-box {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header-main,h1 {
+    color: var(--text-color);
+}
+
+.header-main > div > img {
+    cursor: pointer;
+    height: 75px;
+    width: 50px;
+}
+
+.header-main.shrink {
+  height: 100px;
+  opacity: 0.8;
+}
+

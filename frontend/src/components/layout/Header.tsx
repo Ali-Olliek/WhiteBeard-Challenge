@@ -1,13 +1,42 @@
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { Flex, Layout, Menu, MenuProps } from 'antd';
-import { SettingOutlined } from '@ant-design/icons';
-import { MenuInfo } from 'rc-menu/lib/interface';
-
-const { Header: AntdHeader, Footer, Sider, Content } = Layout;
+import './Header.css';
 
 function Header(): React.ReactElement {
-  return <></>;
+  const navigate = useNavigate();
+  const [shrinkHeader, setShrinkHeader] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShrinkHeader(true);
+      } else {
+        setShrinkHeader(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleGoToHome = () => {
+    navigate('/');
+  };
+
+  return (
+    <div className={`header-main ${shrinkHeader ? 'shrink' : ''}`}>
+      <div className='header-logo-box'>
+        <img onClick={handleGoToHome} src='./logo.png' />
+        <span>
+          <h1>
+            All the news, <br /> anywhere you are.
+          </h1>
+        </span>
+      </div>
+    </div>
+  );
 }
 
 export default Header;
