@@ -18,9 +18,10 @@ function FeaturedArticle({ article, index }: IFeaturedArticle) {
 
   return (
     <StyledCol
+      offset={index === 0 ? 0 : 1}
       onClick={handleClickArticle}
       className='gutter-row'
-      span={index === 0 ? 24 : 12}
+      span={index === 0 ? 24 : 10}
       backgroundImage={article.image.imageUrl}
       article={article}
     >
@@ -48,7 +49,6 @@ const StyledCol = styled(Col)<{ backgroundImage: string; article: Article }>`
   &:hover {
     transform: scale(1.05);
   }
-
 `;
 
 const ArticleContent = styled.p`
@@ -76,6 +76,4 @@ const Title = styled.h1`
   border-radius: 5px;
   transition: all 0.3s ease;
   margin: 0;
-
-
 `;

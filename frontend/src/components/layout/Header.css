@@ -9,6 +9,7 @@
     position: fixed;
     z-index: 1;
     transition: height 0.3s, opacity 0.3s;
+    top: 0px;
 }
 
 .header-logo-box {

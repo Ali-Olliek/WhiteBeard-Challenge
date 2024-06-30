@@ -34,3 +34,12 @@ a {
   --secondary-color: #415A77;
   --text-color: #E0E1DD;
 }
+
+.home-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 150px;
+}

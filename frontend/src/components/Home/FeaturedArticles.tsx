@@ -9,7 +9,7 @@ interface IFeaturedArticles {
 
 function FeaturedArticles({ articles }: IFeaturedArticles) {
   return (
-    <Row gutter={[24, 24]}>
+    <Row gutter={[16, { xs: 8, sm: 16, md: 24, lg: 32 }]}>
       {articles.map((article, index) => (
         <FeaturedArticle key={article.Id} article={article} index={index} />
       ))}

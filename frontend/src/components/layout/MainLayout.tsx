@@ -8,7 +8,7 @@ function MainLayout({ children }: { children: React.ReactNode }) {
       <div>
         <Header />
       </div>
-      <div style={{ padding: '5%' }}>{children}</div>
+      <div>{children}</div>
     </>
   );
 }
