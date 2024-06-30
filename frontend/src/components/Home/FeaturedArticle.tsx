@@ -1,6 +1,4 @@
 import { Article } from '../../classes/Article';
-import { Col } from 'antd';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 interface IFeaturedArticle {
