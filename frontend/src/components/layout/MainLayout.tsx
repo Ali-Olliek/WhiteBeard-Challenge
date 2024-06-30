@@ -8,7 +8,7 @@ function MainLayout({ children }: { children: React.ReactNode }) {
       <div>
         <Header />
       </div>
-      <div>{children}</div>
+      <div className='home-content'>{children}</div>
     </>
   );
 }

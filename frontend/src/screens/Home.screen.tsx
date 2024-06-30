@@ -11,7 +11,7 @@ function Home() {
     const fetchArticles = async () => {
       const articles = await getArticles({
         paginate: true,
-        per_page: 5,
+        per_page: 6,
         page: 1,
       });
 
@@ -22,18 +22,10 @@ function Home() {
   }, []);
 
   return (
-    <Container.Main>
-      <div>
-        <FeaturedArticles articles={articles} />
-      </div>
-    </Container.Main>
+    <div className='articles-container'>
+      <FeaturedArticles articles={articles} />
+    </div>
   );
 }
 
 export default Home;
-
-const Container = {
-  Main: styled.div`
-    margin-top: 10%;
-  `,
-};
