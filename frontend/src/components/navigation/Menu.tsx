@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import ClickableText from '../common/ClickableText';
+import ClickableText from '../Common/ClickableText';
 
 const Nav = styled.nav`
   display: flex;

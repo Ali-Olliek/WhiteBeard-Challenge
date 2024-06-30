@@ -11,7 +11,7 @@ function FeaturedArticles({ articles }: IFeaturedArticles) {
   return (
     <div className='grid-container'>
       {articles.map((article, index) => (
-        <FeaturedArticle article={article} index={index} />
+        <FeaturedArticle key={article.Id} article={article} index={index} />
       ))}
     </div>
   );

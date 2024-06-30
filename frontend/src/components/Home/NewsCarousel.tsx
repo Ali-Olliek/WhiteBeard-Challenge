@@ -33,7 +33,7 @@ function NewsCarousel({ articles }: INewsCarouselProps) {
         </div>
         <div className='carousel-flex'>
           {articles.map((article) => (
-            <CarouselArticle article={article} />
+            <CarouselArticle key={article.Id} article={article} />
           ))}
         </div>
       </div>

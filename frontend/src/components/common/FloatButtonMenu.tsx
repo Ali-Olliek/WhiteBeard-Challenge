@@ -5,6 +5,7 @@ import {
   SendOutlined,
   TwitterOutlined,
 } from '@ant-design/icons';
+import './../../components/Article/ArticlePage.css';
 
 interface IFloatButtonMenu {
   facebook: {
