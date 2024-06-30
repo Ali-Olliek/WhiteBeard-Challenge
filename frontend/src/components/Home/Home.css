@@ -7,10 +7,11 @@
 }
 
 .card {
+  cursor: pointer;
   position: relative;
   width: 300px;
   height: 200px;
-  background-color: #f2f2f2;
+  background-color: #ffffff80;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -20,11 +21,9 @@
   box-shadow: 0 0 0 5px #ffffff80;
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-.card svg {
-  width: 48px;
-  fill: #333;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.card > img {
+  border-radius: 4px;
+  height: 100%;
 }
 
 .card:hover {
@@ -91,8 +90,68 @@
 
 .articles-container {
   padding-block: 50px;
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Carousel */
+
+.carousel-container {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel {
+  width: 95%;
+  height: 95%;
+  background-color: black;
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    var(--text-color),
+    var(--secondary-color)
+  );
+}
+
+.carousel-control {
+  height: 20%;
+  top: 5px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 10px;
+}
+
+.carousel-control > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.left {
+  cursor: pointer;
+  width: 50px;
+  height: 25px;
+  border-radius: 8px;
+  border: 0.5px solid black;
+}
+
+.right {
+  cursor: pointer;
+  width: 50px;
+  height: 25px;
+  border-radius: 8px;
+  border: 0.5px solid black;
+}
+
+.carousel-flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

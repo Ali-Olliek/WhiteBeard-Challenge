@@ -1,14 +1,17 @@
 import { Article } from '../classes/Article';
 import { getArticles } from '../apis/articles.api';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import NewsCarousel from '../components/Home/NewsCarousel';
+import { PaginatorContext } from '../context/paginationContext';
 import FeaturedArticles from '../components/Home/FeaturedArticles';
-import styled from 'styled-components';
 
 function Home() {
   const [articles, setArticles] = useState<Article[]>([]);
+  const [carouselArticles, setCarouselArticles] = useState<Article[]>([]);
+  const { page } = useContext(PaginatorContext);
 
   useEffect(() => {
-    const fetchArticles = async () => {
+    const fetchFeaturedArticles = async () => {
       const articles = await getArticles({
         paginate: true,
         per_page: 6,
@@ -18,13 +21,32 @@ function Home() {
       setArticles(articles);
     };
 
-    fetchArticles();
+    fetchFeaturedArticles();
   }, []);
 
+  useEffect(() => {
+    const fetchCarouselArticles = async () => {
+      const articles = await getArticles({
+        paginate: true,
+        per_page: 4,
+        page: page,
+      });
+
+      setCarouselArticles(articles);
+    };
+
+    fetchCarouselArticles();
+  }, [page]);
+
   return (
-    <div className='articles-container'>
-      <FeaturedArticles articles={articles} />
-    </div>
+    <>
+      <div className='articles-container'>
+        <FeaturedArticles articles={articles} />
+      </div>
+      <div>
+        <NewsCarousel articles={carouselArticles} />
+      </div>
+    </>
   );
 }
 
