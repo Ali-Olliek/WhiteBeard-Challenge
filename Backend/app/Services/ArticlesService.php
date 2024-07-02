@@ -20,7 +20,14 @@ class ArticlesService implements ICRUD
         // return without filtering
         if (!$validatedData) return $articlesQuery->get();
 
+
         // Apply Filters
+        if (isset($validatedData["featured"]) && $validatedData["featured"] === "true") {
+            $articlesQuery->where("is_featured", 1);
+        } else {
+            $articlesQuery->where("is_featured", 0);
+        }
+
         if (isset($validatedData["category_id"])) {
             $articlesQuery->where("category_id", $validatedData["category_id"]);
         }
@@ -95,7 +102,6 @@ class ArticlesService implements ICRUD
             DB::rollBack();
             throw $exception;
         }
-
     }
 
     public function delete(int $id, $params = null)

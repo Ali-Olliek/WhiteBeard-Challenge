@@ -58,6 +58,9 @@ class FilterArticlesRequest extends FormRequest
             ],
             "per_page" => [
                 "integer"
+            ],
+            "featured" => [
+                Rule::in(["true", "false"])
             ]
         ];
     }
