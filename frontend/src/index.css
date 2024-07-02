@@ -40,3 +40,12 @@ a {
     margin-top: 150px;
     background: linear-gradient(180deg, var(--text-color), var(--secondary-color)) ;
 }
+
+@media only screen  and (max-width: 768px) {
+    .home-content {
+        padding-inline: 20px;
+        background-color: white;
+        background: none;
+    }
+
+}

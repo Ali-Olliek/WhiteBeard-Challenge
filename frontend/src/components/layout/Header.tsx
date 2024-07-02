@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Header.css';
+import { ResponsiveContext } from '../../context/ResponsiveContext';
 
 function Header(): React.ReactElement {
   const navigate = useNavigate();
   const [shrinkHeader, setShrinkHeader] = useState(false);
+  const { isMobileView } = useContext(ResponsiveContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,13 +30,21 @@ function Header(): React.ReactElement {
   return (
     <div className={`header-main ${shrinkHeader ? 'shrink' : ''}`}>
       <div className='header-logo-box'>
-        <img onClick={handleGoToHome} src='./logo.png' />
-        <span>
+        {shrinkHeader ? (
+          <></>
+        ) : (
+          <img onClick={handleGoToHome} src='./logo.png' />
+        )}
+      </div>
+      <span>
+        {isMobileView ? (
+          <h1>All the news, anywhere you are.</h1>
+        ) : (
           <h1>
             All the news, <br /> anywhere you are.
           </h1>
-        </span>
-      </div>
+        )}
+      </span>
     </div>
   );
 }

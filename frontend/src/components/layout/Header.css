@@ -35,3 +35,24 @@
   opacity: 0.8;
 }
 
+@media only screen and (max-width: 768px) {
+    .header-main,h1 {
+        font-size: 18px;
+    }
+
+    .header-main {
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0px 5px;
+    }
+
+    .header-main.shrink {
+        justify-content: center;
+    }
+
+    .header-main.shrink > .header-logo-box{
+        width: 0px;
+        justify-content: center;
+    }
+}
