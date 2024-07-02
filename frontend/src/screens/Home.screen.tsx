@@ -52,9 +52,7 @@ function Home() {
       <div className='articles-container'>
         <FeaturedArticles articles={articles} />
       </div>
-      <div>
-        <NewsCarousel articles={carouselArticles} />
-      </div>
+      <NewsCarousel articles={carouselArticles} />
     </>
   );
 }

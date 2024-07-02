@@ -20,7 +20,7 @@ function FeaturedArticle({ article, index }: IFeaturedArticle) {
   return (
     <>
       {isMobileView ? (
-        <div className='grid-item'>
+        <div onClick={handleClickArticle} className='grid-item'>
           <div className='mobile-card'>
             <img src={article.image.imageUrl} />
             <div className='card__content'>
