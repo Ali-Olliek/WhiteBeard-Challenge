@@ -78,3 +78,41 @@
  font-size: 20px;
  text-align: justify;
 }
+
+@media only screen and (max-width: 768px) {
+    .article-container {
+    margin-top: 200px;
+    position: absolute;
+    width: 100%;
+    padding-inline: 20px;
+    height: auto;
+    left: 0px;
+  }
+
+  .article-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .article-interaction {
+    height: 50px;
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+    gap: 30px;
+  }
+
+  .article-interaction-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+
+  .article-content-mobile {
+    padding: 20px;
+    text-align: justify;
+  }
+}
