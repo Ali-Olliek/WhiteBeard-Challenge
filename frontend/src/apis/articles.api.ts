@@ -1,6 +1,6 @@
 import { Article } from '../classes/Article';
 import unAuthenticatedApi from '../config/api';
-import { Params, SearchParamsService } from '../services/SearchParamsService';
+import { PayloadService, Params } from '../services/PayloadService';
 
 interface IArticleFilter {
   per_page?: number;
@@ -19,12 +19,12 @@ const API = unAuthenticatedApi;
 
 const index = async (params?: IArticleFilter) => {
   try {
-    const ParamsService = new SearchParamsService();
+    const Payload = new PayloadService('URLSearchParams');
 
-    ParamsService.convert(params as Params);
+    Payload.convert(params as Params);
 
     const result = await API.get(
-      `${Article.URI}?${ParamsService.searchParams}`
+      `${Article.URI}?${Payload.payload.toString()}`
     );
 
     const mappedArticles = result.data.data.map(

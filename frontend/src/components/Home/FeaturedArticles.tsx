@@ -1,6 +1,4 @@
-import React from 'react';
 import { Article } from '../../classes/Article';
-import { Row } from 'antd';
 import FeaturedArticle from './FeaturedArticle';
 import './Home.css';
 interface IFeaturedArticles {

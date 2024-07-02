@@ -1,12 +1,15 @@
 import React from 'react';
 import { PaginationProvider } from './paginationContext';
 import { LoadingProvider } from './loadingContext';
+import { ResponsiveProvider } from './ResponsiveContext';
 
 const BaseProvider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <LoadingProvider>
-      <PaginationProvider>{children}</PaginationProvider>
-    </LoadingProvider>
+    <ResponsiveProvider>
+      <LoadingProvider>
+        <PaginationProvider>{children}</PaginationProvider>
+      </LoadingProvider>
+    </ResponsiveProvider>
   );
 };
 
