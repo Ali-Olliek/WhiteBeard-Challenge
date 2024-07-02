@@ -1,9 +1,10 @@
 import unAuthenticatedApi from '../config/api';
 
+const API = unAuthenticatedApi;
+
 const like = async (articledId: number) => {
   try {
-    const api = unAuthenticatedApi;
-    const result = await api.post(`articles/${articledId}/like`);
+    const result = await API.post(`articles/${articledId}/like`);
 
     return result.data.data;
   } catch (error) {
@@ -13,9 +14,7 @@ const like = async (articledId: number) => {
 
 const view = async (articleId: number) => {
   try {
-    const api = unAuthenticatedApi;
-
-    const result = await api.post(`articles/${articleId}/view`);
+    const result = await API.post(`articles/${articleId}/view`);
 
     return result.data;
   } catch (error) {
